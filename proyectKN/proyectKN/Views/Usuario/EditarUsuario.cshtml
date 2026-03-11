@@ -1,0 +1,93 @@
+﻿@model proyectKN.Models.Usuario
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+    Layout = "_Layout";
+}
+
+
+<div class="container mt-4">
+
+    <div class="profile-header">
+        <h2>Editar Usuario</h2>
+        <p>Modificar información del usuario</p>
+    </div>
+
+    <div class="card">
+        <form asp-action="EditarUsuario" method="post" class="card-body">
+
+            <input type="hidden" asp-for="Consecutivo" />
+
+            <div class="row">
+                <div class="field">
+                    <label>Nombre Completo</label>
+                    <input type="text" asp-for="NombreCompleto" required class="form-control" />
+                </div>
+
+                <div class="field">
+                    <label>Cédula</label>
+                    <input type="text" asp-for="Cedula" required class="form-control" />
+                </div>
+
+                <div class="field">
+                    <label>Correo</label>
+                    <input type="email" asp-for="Correo" required class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="field">
+                    <label>Usuario</label>
+                    <input type="text" asp-for="UsuarioLogin" required class="form-control" />
+                </div>
+            </div>
+               
+                <div class="row mt-3">
+                    <div class="field">
+                        <label>Contraseña</label>
+                        <input type="password" asp-for="Contrasenna" class="form-control" placeholder="Nueva contraseña (opcional)" />
+                    </div>
+            </div>
+            <div class="row mt-3">
+                <!-- ROL -->
+                <div class="field">
+                    <label>Rol</label>
+                    <select asp-for="NombreRol" class="form-control" required>
+                        @if (ViewBag.Roles != null)
+                        {
+                            foreach (var r in ViewBag.Roles)
+                            {
+                                <option value="@r.Consecutivo" selected="@(r.Consecutivo == Model.NombreRol ? "selected" : null)">
+                                    @r.NombreRol
+                                </option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <!-- ESTADO -->
+                <div class="field">
+                    <label>Estado</label>
+                    <select asp-for="Estado" class="form-control" required>
+                        @if (ViewBag.Estado != null)
+                        {
+                            foreach (var e in ViewBag.Estado)
+                            {
+                                <option value="@e.Consecutivo" selected="@(e.Consecutivo == Model.Estado ? "selected" : null)">
+                                    @e.Estado
+                                </option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="RegistroUsuario" class="btn btn-secondary">Cancelar</a>
+            </div>
+
+        </form>
+    </div>
+
+</div>

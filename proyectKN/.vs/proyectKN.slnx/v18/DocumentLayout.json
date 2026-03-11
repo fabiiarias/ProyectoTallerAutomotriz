@@ -1,0 +1,543 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\ProyectoFinal\\proyectKN\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\estadom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\estadom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\usuarioconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\usuarioconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\inventarioconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\inventarioconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\inventario\\registroinventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\inventario\\registroinventario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\usuario\\registrousuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\usuario\\registrousuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\usuario\\editarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\usuario\\editarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\cita\\registrocita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\cita\\registrocita.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\services\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\services\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\services\\ipasswordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\services\\ipasswordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\js\\registro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\js\\registro.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\css\\cards.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\css\\cards.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\css\\filename.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\css\\filename.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\css\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\css\\fondo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\css\\fondo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\contavilidad\\registroegreso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\contavilidad\\registroegreso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\wwwroot\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\inventariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\contavilidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\contavilidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\vehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\vehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\vehiculo\\registrovehiculo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\vehiculo\\registrovehiculo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\contavilidad\\registroingreso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\contavilidad\\registroingreso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\controllers\\citacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\controllers\\citacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\vehiculo\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\vehiculo\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|c:\\proyectofinal\\proyectkn\\proyectkn\\views\\inventario\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B6A1AD4E-7459-C187-7593-FA593D910832}|proyectKN\\proyectKN.csproj|solutionrelative:proyectkn\\views\\inventario\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InventarioConsulta.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\InventarioConsulta.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\InventarioConsulta.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\InventarioConsulta.cs",
+              "RelativeToolTip": "proyectKN\\Models\\InventarioConsulta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:33:28.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegistroInventario.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Inventario\\RegistroInventario.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Inventario\\RegistroInventario.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Inventario\\RegistroInventario.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Inventario\\RegistroInventario.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T01:42:40.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Inventario.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Inventario.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\Inventario.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Inventario.cs",
+              "RelativeToolTip": "proyectKN\\Models\\Inventario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T22:43:39.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "fondo.css",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\fondo.css",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\css\\fondo.css",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\fondo.css",
+              "RelativeToolTip": "proyectKN\\wwwroot\\css\\fondo.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-06T05:50:24.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowGEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T04:08:33.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "cards.css",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\cards.css",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\css\\cards.css",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\cards.css",
+              "RelativeToolTip": "proyectKN\\wwwroot\\css\\cards.css",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAmwNAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-25T00:02:32.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RegistroEgreso.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Contavilidad\\RegistroEgreso.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Contavilidad\\RegistroEgreso.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Contavilidad\\RegistroEgreso.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Contavilidad\\RegistroEgreso.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T00:10:12.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\Usuario.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Usuario.cs",
+              "RelativeToolTip": "proyectKN\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T18:36:18.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioConsulta.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\UsuarioConsulta.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\UsuarioConsulta.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\UsuarioConsulta.cs",
+              "RelativeToolTip": "proyectKN\\Models\\UsuarioConsulta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T03:53:07.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EstadoM.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\EstadoM.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\EstadoM.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\EstadoM.cs",
+              "RelativeToolTip": "proyectKN\\Models\\EstadoM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T05:34:11.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Registro.js",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\js\\Registro.js",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\js\\Registro.js",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\js\\Registro.js",
+              "RelativeToolTip": "proyectKN\\wwwroot\\js\\Registro.js",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-06T05:02:37.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RegistroUsuario.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Usuario\\RegistroUsuario.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Usuario\\RegistroUsuario.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Usuario\\RegistroUsuario.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Usuario\\RegistroUsuario.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T02:39:27.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EditarUsuario.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Usuario\\EditarUsuario.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Usuario\\EditarUsuario.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Usuario\\EditarUsuario.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Usuario\\EditarUsuario.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T06:26:34.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAIBJwGQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-24T23:58:46.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\main.css",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\css\\main.css",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\main.css",
+              "RelativeToolTip": "proyectKN\\wwwroot\\css\\main.css",
+              "ViewState": "AgIAAAYFAAAAAAAAAIBJwBEFAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-06T05:24:28.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Models\\Rol.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Models\\Rol.cs",
+              "RelativeToolTip": "proyectKN\\Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T05:33:37.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Program.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Program.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Program.cs",
+              "RelativeToolTip": "proyectKN\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T06:28:30.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PasswordHelper.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Services\\PasswordHelper.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Services\\PasswordHelper.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Services\\PasswordHelper.cs",
+              "RelativeToolTip": "proyectKN\\Services\\PasswordHelper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T18:43:18.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegistroCita.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Cita\\RegistroCita.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Cita\\RegistroCita.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Cita\\RegistroCita.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Cita\\RegistroCita.cshtml",
+              "ViewState": "AgIAAEkAAAAAAAAAAAASwGQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T06:25:27.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IPasswordHelper.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Services\\IPasswordHelper.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Services\\IPasswordHelper.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Services\\IPasswordHelper.cs",
+              "RelativeToolTip": "proyectKN\\Services\\IPasswordHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T18:49:29.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FileName.css",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\FileName.css",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\css\\FileName.css",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\FileName.css",
+              "RelativeToolTip": "proyectKN\\wwwroot\\css\\FileName.css",
+              "ViewState": "AgIAAIYAAAAAAAAAAIBJwIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-25T00:06:52.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "proyectKN\\wwwroot\\css\\bootstrap.min.css",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\wwwroot\\css\\bootstrap.min.css",
+              "RelativeToolTip": "proyectKN\\wwwroot\\css\\bootstrap.min.css",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-06T05:50:37.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "InventarioController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\InventarioController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\InventarioController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\InventarioController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\InventarioController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwGsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T23:59:08.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T06:08:37.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "VehiculoController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\VehiculoController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\VehiculoController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\VehiculoController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\VehiculoController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAIBZwGoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T06:09:00.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\appsettings.json",
+              "RelativeDocumentMoniker": "proyectKN\\appsettings.json",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\appsettings.json",
+              "RelativeToolTip": "proyectKN\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-28T02:44:01.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RegistroVehiculo.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Vehiculo\\RegistroVehiculo.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Vehiculo\\RegistroVehiculo.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Vehiculo\\RegistroVehiculo.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Vehiculo\\RegistroVehiculo.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T01:12:16.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RegistroIngreso.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Contavilidad\\RegistroIngreso.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Contavilidad\\RegistroIngreso.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Contavilidad\\RegistroIngreso.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Contavilidad\\RegistroIngreso.cshtml",
+              "ViewState": "AgIAAEQAAAAAAAAAAADwv1AAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-25T00:10:28.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CitaController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\CitaController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\CitaController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\CitaController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\CitaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T06:01:54.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Vehiculo\\Editar.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Vehiculo\\Editar.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Vehiculo\\Editar.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Vehiculo\\Editar.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T06:26:49.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Inventario\\Editar.cshtml",
+              "RelativeDocumentMoniker": "proyectKN\\Views\\Inventario\\Editar.cshtml",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Views\\Inventario\\Editar.cshtml",
+              "RelativeToolTip": "proyectKN\\Views\\Inventario\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-28T06:26:21.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ContavilidadController.cs",
+              "DocumentMoniker": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\ContavilidadController.cs",
+              "RelativeDocumentMoniker": "proyectKN\\Controllers\\ContavilidadController.cs",
+              "ToolTip": "C:\\ProyectoFinal\\proyectKN\\proyectKN\\Controllers\\ContavilidadController.cs",
+              "RelativeToolTip": "proyectKN\\Controllers\\ContavilidadController.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAcwHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T06:05:45.782Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

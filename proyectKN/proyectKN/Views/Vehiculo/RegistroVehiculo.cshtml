@@ -1,0 +1,178 @@
+﻿
+
+@{
+    ViewData["Title"] = "Registro Vehiculo";
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/css/cards.css" />
+</head>
+
+<body>
+   
+    <div class="container mt-4">
+
+        <!-- Header flotante -->
+        <div class="profile-header">
+            <h2>Registro de vehículo</h2>
+            <p>Registrar un nuevo vehículo</p>
+        </div>
+
+        <!-- FORMULARIO -->
+        <div class="card">
+            <form asp-action="RegistroVehiculo"
+                  asp-controller="Vehiculo"
+                  method="post"
+                  class="card-body">
+
+                <div class="row">
+                    <div class="field">
+                        <label>Marca del vehículo</label>
+                        <input type="text">
+                    </div>
+                    <div class="field">
+                        <label>Modelo del vehículo</label>
+                        <input type="text">
+                    </div>
+                    <div class="field">
+                        <label>Año del vehículo</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label>Placa del vehículo</label>
+                        <input type="text">
+                    </div>
+                    <div class="field">
+                        <label>Modelo del vehículo</label>
+                        <input type="text">
+                    </div>
+                    <div class="field">
+                        <label>Placa del vehículo</label>
+                        <input type="text">
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label>Cédula</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="field">
+                        <label>Nombre del dueño</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="field">
+                        <label>Teléfono</label>
+                        <input type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <label>Estado</label>
+                        <select name="estado" required>
+                            <option value="Recibido">Recibido</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En reparación">En reparación</option>
+                            <option value="Reparado">Reparado</option>
+                        </select>
+                    </div>
+                    
+
+                    <div class="field full">
+                        <label>Problema reportado</label>
+                        <textarea rows="4">
+
+                </textarea>
+                    </div>
+                    <div class="field full">
+                        <label>Revición Incial</label>
+                        <textarea rows="4">
+
+                </textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn">Crear</button>
+
+            </form>
+        </div>
+
+        <!-- TABLA -->
+        <div class="table-registros">
+            <div class="table-title">Usuarios Registrados</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehículo</th>
+                        <th>Placa</th>
+                        <th>Año</th>
+                        <th>Estado</th>
+                        <th>Problema</th>
+                        <th>Dueño</th>
+                        <th>Contacto</th>
+                        <th>Cédula</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Marca</td>
+                                <td>@item.Placa</td>
+                                 <td>@item.Anio</td>
+                                <td>@item.Estado</td>
+                                 <td>@item.Problema</td>
+                                <td>@item.NombreCliente</td>
+                                <td>@item.Telefono</td>
+                                 <td>@item.Cedula</td>
+                                <td>
+
+
+                                    <a asp-controller="Vehiculo"
+                                       asp-action="Editar"
+                                       asp-route-id="@item.IdVehiculo"
+                                       class="btn btn-warning btn-sm">
+                                        Editar
+                                    </a>
+
+                                    <a asp-action="Eliminar"
+                                       asp-route-id="@item.IdVehiculo"
+                                       class="btn btn-danger btn-sm">
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">
+                                No hay productos registrados
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- JS -->
+</body>
+

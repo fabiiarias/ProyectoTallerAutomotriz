@@ -1,0 +1,80 @@
+[
+  {
+    "ContainingType": "proyectKN_API.Controllers.EstadoController",
+    "Method": "ObtenerEstado",
+    "RelativePath": "api/Estado/ObtenerEstado",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "proyectKN_API.Controllers.RolController",
+    "Method": "ObtenerRoles",
+    "RelativePath": "api/Rol/ObtenerRoles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "proyectKN_API.Controllers.UsuarioController",
+    "Method": "ConsultarUsuarios",
+    "RelativePath": "api/Usuario/ConsultarUsuarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "proyectKN_API.Controllers.UsuarioController",
+    "Method": "EditarUsuario",
+    "RelativePath": "api/Usuario/EditarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "proyectKN_API.Models.UsuarioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "proyectKN_API.Controllers.UsuarioController",
+    "Method": "ObtenerUsuarioId",
+    "RelativePath": "api/Usuario/ObtenerUsuarioId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "proyectKN_API.Controllers.UsuarioController",
+    "Method": "RegistroUsuario",
+    "RelativePath": "api/Usuario/RegistroUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "proyectKN_API.Models.UsuarioRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,153 @@
+﻿@model proyectKN.Models.Inventario
+
+@{
+    ViewData["Title"] = "Registro de Inventario";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+
+    <!-- Header -->
+    <div class="profile-header">
+        <h2>Registro de Inventario</h2>
+        <p>Registrar un nuevo Producto</p>
+    </div>
+    <h3 class="mb-4 pb-2 text-center">Crear Cuenta</h3>
+@if (ViewBag.Mensaje != null)
+{
+        <div class="alert alert-danger text-center text-danger">
+            @ViewBag.Mensaje
+        </div>
+}
+
+    <!-- FORMULARIO -->
+    <div class="card">
+        <form asp-action="RegistroInventario" method="post" id="formRegistro" class="card-body">
+
+            <div class="row">
+
+                <div class="field">
+                    <label>Nombre</label>
+                    <input type="text" asp-for="Nombre" class="form-control" required>
+                </div>
+
+                <div class="field">
+                    <label>IdArticulo</label>
+                    <input type="number" asp-for="IdArticulo" class="form-control" placeholder="1187526" required>
+                </div>
+
+
+                <div class="field">
+                    <label>Descripcion</label>
+                    <input type="text" asp-for="Descripcion" class="form-control" placeholder="Aceite de motor" required>
+                </div>
+
+                <div class="field">
+                    <label>PrecioCompra</label>
+                    <input type="number" asp-for="PrecioCompra" class="form-control" placeholder=" ₡25.000" required>
+                </div>
+               
+
+            <div class="row">
+
+                <div class="field">
+                    <label>Stock</label>
+                    <input type="number" asp-for="Stock" class="form-control" required>
+                </div>
+
+                <div class="field">
+                    <label>StockMinimo</label>
+                    <input type="number" asp-for="StockMinimo" class="form-control" required>
+                </div>
+
+                <!-- ROL -->
+                <div class="field">
+                    <label>Rol</label>
+                    <select asp-for="NombreRol" class="form-control" required>
+                        <option value="">Seleccione un Rol</option>
+                        @if (ViewBag.Roles != null)
+                        {
+                            foreach (var r in ViewBag.Roles)
+                            {
+                                <option value="@r.Consecutivo">@r.NombreRol</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <!-- ESTADO -->
+                <div class="field">
+                    <label>Proveedor</label>
+                    <select asp-for="Proveedor" class="form-control" required>
+                        <option value="">Seleccione un Proveedor</option>
+                        @if (ViewBag.Proveedor != null)
+                        {
+                            foreach (var e in ViewBag.Proveedor)
+                            {
+                                <option value="@e.Consecutivo">@e.Estado</option>
+                            }
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn">Crear</button>
+
+        </form>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table-registros">
+        <div class="table-title">Usuarios Registrados</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cédula</th>
+                    <th>Correo</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (ViewBag.Usuarios != null)
+                {
+                    foreach (var item in ViewBag.Usuarios)
+                    {
+                        <tr>
+                            <td>@item.NombreCompleto</td>
+                            <td>@item.Cedula</td>
+                            <td>@item.Correo</td>
+                            <td>@item.UsuarioLogin</td>
+                            <td>@item.NombreRol</td>
+                            <td>@item.Estado</td>
+                            <td>
+                                <a asp-controller="Usuario"
+                                   asp-action="EditarUsuario"
+                                   asp-route-id="@item.Consecutivo"
+                                   class="btn btn-warning">
+                                    Editar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">
+                            No hay usuarios registrados
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="~/js/Registro.js" asp-append-version="true"></script>
+

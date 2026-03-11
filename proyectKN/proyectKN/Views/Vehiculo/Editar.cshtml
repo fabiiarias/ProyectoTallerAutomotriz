@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Editar producto";
+    Layout = "_Layout";
+}
+<div class="container mt-4">
+
+    <div class="card p-4">
+        <h4 class="mb-3">
+            <i class="fa-solid fa-pen"></i> Editar Vehículo
+        </h4>
+
+        <form asp-action="Editar"
+              asp-controller="Vehiculo"
+              method="post">
+
+            <!-- ID oculto (OBLIGATORIO) -->
+            <input type="hidden" name="IdVehiculo" value="@Model.IdVehiculo" />
+
+            <div class="mb-3">
+                <label>Marca</label>
+                <input type="text" name="Marca" class="form-control" value="@Model.Marca" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Modelo</label>
+                <input type="text" name="Modelo" class="form-control" value="@Model.Modelo" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Año</label>
+                <input type="number" name="Anio" class="form-control" value="@Model.Anio" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Placa</label>
+                <input type="text" name="Placa" class="form-control" value="@Model.Placa" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Estado</label>
+                <select name="Estado" class="form-select" value="@Model.Estado" required>
+                    <option value="Recibido">Recibido</option>
+                    <option value="Pendiente" >Pendiente</option>
+                    <option value="En reparación">En reparación</option>
+                    <option value="Reparado">Reparado</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Problema reportado</label>
+                <input type="text" name="Problema" class="form-control" value="@Model.Problema" />
+            </div>
+
+            <div class="mb-3">
+                <label>Nombre del dueño</label>
+                <input type="text" name="NombreCliente" class="form-control" value="@Model.NombreCliente" />
+            </div>
+
+            <div class="mb-3">
+                <label>Teléfono</label>
+                <input type="text" name="Telefono" class="form-control" value="@Model.Telefono" />
+            </div>
+
+            <div class="mb-3">
+                <label>Cédula</label>
+                <input type="text" name="Cedula" class="form-control" value="@Model.Cedula" />
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="RegistroVehiculo" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </a>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fa-solid fa-save"></i> Guardar cambios
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,148 @@
+﻿
+
+@{
+    ViewData["Title"] = "Inventario";
+    Layout = "_Layout";
+}
+
+<!-- CSS -->
+<link rel="stylesheet" href="~/css/cards.css" />
+
+<div class="container mt-4">
+
+    <!-- Header flotante -->
+    <div class="profile-header">
+        <h2>Registro de Citas</h2>
+        <p>Registrar una nueva cita</p>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+        <form asp-controller="Cita" asp-action="RegistroCita" method="post" class="card-body">
+
+
+
+            <div class="row">
+                <div class="field">
+                    <label>Nombre Cliente</label>
+                    <input type="text" name="Nombre_Cliente" required />
+                </div>
+
+                <div class="field">
+                    <label>Cédula</label>
+                    <input type="text" name="Cedula" required />
+                </div>
+
+                <div class="field">
+                    <label>Teléfono</label>
+                    <input type="number" name="Telefono" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" name="Email" />
+                </div>
+
+                <div class="field">
+                    <label>Fecha</label>
+                    <input type="date" name="FechaCita" required />
+                </div>
+
+                <div class="field">
+                    <label>Hora</label>
+                    <input type="time" name="HoraCita" required />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Servicio</label>
+                    <input type="text" name="Servicio" />
+                </div>
+
+                <div class="field">
+                    <label>Estado</label>
+                    <select name="Estado">
+                        <option value="ACEPTADO">ACEPTADO</option>
+                        <option value="PENDIENTE">PENDIENTE</option>
+                        <option value="CANCELADO">CANCELADO</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Crear</button>
+
+        </form>
+    </div>
+
+
+    <!-- TABLA DE CITAS -->
+    <div class="table-registros">
+        <div class="table-title">Citas Registradas</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Cédula</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Servicio</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NombreCliente</td>
+                            <td>@item.Cedula</td>
+                            <td>@item.FechaCita.ToShortDateString()</td>
+                            <td>@item.HoraCita</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Email</td>
+                            <td>@item.Servicio</td>
+                            <td>@item.Estado</td>
+
+                            <td>
+                                <a asp-controller="Cita"
+                                   asp-action="Editar"
+                                   asp-route-id="@item.IdCita"
+                                   class="btn btn-warning btn-sm">
+                                    Editar
+                                </a>
+
+                                <a asp-controller="Cita"
+                                   asp-action="Eliminar"
+                                   asp-route-id="@item.IdCita"
+                                   class="btn btn-danger btn-sm">
+                                    Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center text-muted">
+                            No hay citas registradas
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- JS -->
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/soft-ui-dashboard.min.js"></script>

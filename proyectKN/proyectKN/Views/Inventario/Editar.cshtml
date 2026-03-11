@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "Editar producto";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+
+    <div class="card p-4">
+        <h4 class="mb-3">
+            <i class="fa-solid fa-pen"></i> Editar producto
+        </h4>
+
+        <form asp-action="Editar"
+              asp-controller="Inventario"
+              method="post">
+
+            <!-- ID oculto (OBLIGATORIO) -->
+            <input type="hidden" name="IdProducto" value="@Model.IdProducto" />
+
+            <div class="mb-3">
+                <label>ID del artículo</label>
+                <input type="text"
+                       class="form-control"
+                       value="@Model.IdProducto"
+                       readonly />
+            </div>
+
+            <div class="mb-3">
+                <label>Artículo</label>
+                <input type="text"
+                       name="Nombre"
+                       class="form-control"
+                       value="@Model.Nombre"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label>Cantidad</label>
+                <input type="number"
+                       name="Stock"
+                       class="form-control"
+                       value="@Model.Stock"
+                       min="0"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label>Precio Compra</label>
+                <input type="text"
+                       name="PrecioCompra"
+                       step="0.01"
+                       class="form-control"
+                       value="@Model.PrecioCompra"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label>Precio Venta</label>
+                <input type="text"
+                       name="PrecioVenta"
+                       step="0.01"
+                       class="form-control"
+                       value="@Model.PrecioVenta"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label>Descripción</label>
+                <input type="text"
+                       name="Descripcion"
+                       class="form-control"
+                       value="@Model.Descripcion" />
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Registro" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </a>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="fa-solid fa-save"></i> Guardar cambios
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
