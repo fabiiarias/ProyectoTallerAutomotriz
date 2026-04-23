@@ -12,14 +12,14 @@
   /**
    * Header toggle
    */
-  const headerToggleBtn = document.querySelector('.header-toggle');
+    const headerToggleBtn = document.querySelector('.header-toggle');
 
-  function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
-  }
-  headerToggleBtn.addEventListener('click', headerToggle);
+    function headerToggle() {
+        document.querySelector('#header').classList.toggle('header-show');
+        headerToggleBtn?.classList.toggle('bi-list');
+        headerToggleBtn?.classList.toggle('bi-x');
+    }
+    headerToggleBtn?.addEventListener('click', headerToggle);
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -58,28 +58,36 @@
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector('.scroll-top');
+    /**
+  * Scroll top button
+  */
+    let scrollTop = document.querySelector('.scroll-top');
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    function toggleScrollTop() {
+        if (scrollTop) {
+            window.scrollY > 100
+                ? scrollTop.classList.add('active')
+                : scrollTop.classList.remove('active');
+        }
     }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+    if (scrollTop) {
+        scrollTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    window.addEventListener('load', toggleScrollTop);
+    document.addEventListener('scroll', toggleScrollTop);
 
   /**
    * Animation on scroll function and init
    */
-  function aosInit() {
+  /*function aosInit() {
     AOS.init({
       duration: 600,
       easing: 'ease-in-out',
@@ -87,7 +95,7 @@
       mirror: false
     });
   }
-  window.addEventListener('load', aosInit);
+  window.addEventListener('load', aosInit);*/
 
   /**
    * Init typed.js
@@ -108,7 +116,7 @@
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
+  //new PureCounter();
 
   /**
    * Animate the skills items on reveal
@@ -130,7 +138,7 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
+  /*const glightbox = GLightbox({
     selector: '.glightbox'
   });
 

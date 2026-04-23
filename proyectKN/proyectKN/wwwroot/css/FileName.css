@@ -48,6 +48,7 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     padding-top: 60px;
     padding-bottom: 30px;
+    max-width: 2000px;
 }
 
 /* Card body */
@@ -103,10 +104,10 @@ textarea {
     background: #5fa8d3;
     color: #000;
     border: none;
-    padding: 12px 28px;
+   
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     transition: 0.3s ease;
 }

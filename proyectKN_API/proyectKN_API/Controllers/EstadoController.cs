@@ -1,8 +1,9 @@
 ﻿using Dapper;
-using proyectKN_API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Http;
+using proyectKN_API.Models;
+using System.Data;
 namespace proyectKN_API.Controllers;
 
 [Route("api/[controller]")]
@@ -14,15 +15,19 @@ public class EstadoController : ControllerBase
     {
         _config = config;
     }
-    [HttpPost("ObtenerEstado")]
-    public IActionResult ObtenerEstado()
+    [HttpGet("ObtenerEstado/{idTipo}")]
+    public IActionResult ObtenerEstado(int idTipo)
     {
         using var context = new SqlConnection(
             _config.GetValue<string>("ConnectionStrings:DefaultConnection"));
 
+        var parametros = new DynamicParameters();
+        parametros.Add("@IdTipoEstado", idTipo);
+
         var result = context.Query<EstadoM>(
             "sp_ObtenerEstado",
-            commandType: System.Data.CommandType.StoredProcedure
+            parametros,
+            commandType: CommandType.StoredProcedure
         ).ToList();
 
         if (result == null || !result.Any())

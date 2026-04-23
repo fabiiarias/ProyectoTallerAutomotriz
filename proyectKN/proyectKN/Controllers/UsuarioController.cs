@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using proyectKN.Filters;
 using proyectKN.Models;
 using proyectKN.Services;
 using System.Net;
 
 namespace proyectKN.Controllers
 {
+    [SesionActiva]
+  
     public class UsuarioController : Controller
     {
         private readonly IHttpClientFactory _http;
@@ -21,13 +24,14 @@ namespace proyectKN.Controllers
 
         // GET REGISTRO USUARIO
         [HttpGet]
+
         public IActionResult RegistroUsuario()
         {
-      
+
             using var client = _http.CreateClient();
 
             var urlRoles = _config.GetValue<string>("Valores:UrlAPI") + "Rol/ObtenerRoles";
-            var urlEstados = _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado";
+            var urlEstados = _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/1";
             var urlUsuarios = _config.GetValue<string>("Valores:UrlAPI") + "Usuario/ConsultarUsuarios";
 
             // ROL
@@ -45,7 +49,7 @@ namespace proyectKN.Controllers
             }
 
             // ESTADO
-            var responseEstados = client.PostAsync(urlEstados, null).Result;
+            var responseEstados = client.GetAsync(urlEstados).Result;
 
             if (responseEstados.IsSuccessStatusCode)
             {
@@ -81,21 +85,54 @@ namespace proyectKN.Controllers
         [HttpPost]
         public IActionResult RegistroUsuario(Usuario model)
         {
-            model.Contrasenna = _password.Encrypt(model.Contrasenna);
             using var client = _http.CreateClient();
+            model.Estado = 1;
             var url = _config.GetValue<string>("Valores:UrlAPI") + "Usuario/RegistroUsuario";
             var result = client.PostAsJsonAsync(url, model).Result;
 
-            if (result.StatusCode == HttpStatusCode.OK)
+            if (result.IsSuccessStatusCode)
             {
-                return RedirectToAction("RegistroUsuario", "Usuario");
+                TempData["Success"] = "Usuario registrado correctamente.";
+                return RedirectToAction("RegistroUsuario");
             }
-            else if (result.StatusCode == HttpStatusCode.InternalServerError)
+            else
             {
-                throw new Exception();
+                ViewBag.Mensaje = result.Content.ReadAsStringAsync().Result;
+
+                model.Contrasenna = null;
+
+                // RECARGAR TABLA
+                var urlUsuarios = _config.GetValue<string>("Valores:UrlAPI") + "Usuario/ConsultarUsuarios";
+                var responseUsuarios = client.PostAsync(urlUsuarios, null).Result;
+
+                if (responseUsuarios.IsSuccessStatusCode)
+                {
+                    ViewBag.Usuarios = responseUsuarios.Content
+                        .ReadFromJsonAsync<List<UsuarioConsulta>>()
+                        .Result;
+                }
+                else
+                {
+                    ViewBag.Usuarios = new List<UsuarioConsulta>();
+                }
+
+                // RECARGAR ROLES
+                var urlRoles = _config.GetValue<string>("Valores:UrlAPI") + "Rol/ObtenerRoles";
+                var responseRoles = client.PostAsync(urlRoles, null).Result;
+
+                if (responseRoles.IsSuccessStatusCode)
+                {
+                    ViewBag.Roles = responseRoles.Content
+                        .ReadFromJsonAsync<List<Rol>>()
+                        .Result;
+                }
+                else
+                {
+                    ViewBag.Roles = new List<Rol>();
+                }
+
+                return View(model);
             }
-            ViewBag.Mensaje = result.Content.ReadAsStringAsync().Result;
-            return RegistroUsuario();
         }
 
         //GET EDITAR 
@@ -105,48 +142,94 @@ namespace proyectKN.Controllers
         {
             using var client = _http.CreateClient();
 
-            // Traer Roles y Estados
-            ViewBag.Roles = client.PostAsync(_config.GetValue<string>("Valores:UrlAPI") + "Rol/ObtenerRoles", null)
-                                  .Result.Content.ReadFromJsonAsync<List<Rol>>().Result;
-            ViewBag.Estado = client.PostAsync(_config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado", null)
-                                   .Result.Content.ReadFromJsonAsync<List<EstadoM>>().Result;
+            // ROLES 
+            var responseRoles = client.PostAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + "Rol/ObtenerRoles", null
+            ).Result;
 
-            // Traer Usuario por ID
-            var responseUsuario = client.GetAsync(_config.GetValue<string>("Valores:UrlAPI") + $"Usuario/ObtenerUsuarioId/{id}").Result;
-
-            Usuario usuario = null;
-            if (responseUsuario.IsSuccessStatusCode)
+            if (responseRoles.IsSuccessStatusCode)
             {
-                usuario = responseUsuario.Content.ReadFromJsonAsync<Usuario>().Result;
+                ViewBag.Roles = responseRoles.Content
+                                             .ReadFromJsonAsync<List<Rol>>()
+                                             .Result;
             }
             else
             {
-                TempData["Mensaje"] = "No se pudo cargar el usuario.";
+                ViewBag.Roles = new List<Rol>();
+            }
+            // ESTADO
+            var responseEstados = client.GetAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/1"
+            ).Result;
+
+            if (responseEstados.IsSuccessStatusCode)
+            {
+                ViewBag.Estado = responseEstados.Content
+                                                .ReadFromJsonAsync<List<EstadoM>>()
+                                                .Result;
+            }
+            else
+            {
+                ViewBag.Estado = new List<EstadoM>();
+            }
+
+            // USUARIO
+            var responseUsuario = client.GetAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + $"Usuario/ObtenerUsuarioId/{id}"
+            ).Result;
+
+            Usuario usuario = null;
+
+            if (responseUsuario.IsSuccessStatusCode)
+            {
+                usuario = responseUsuario.Content
+                                         .ReadFromJsonAsync<Usuario>()
+                                         .Result;
+            }
+            else
+            {
+                TempData["Error"] = "No se pudo cargar el usuario.";
                 return RedirectToAction("RegistroUsuario");
             }
 
             return View(usuario);
         }
-
         [HttpPost]
         public IActionResult EditarUsuario(Usuario model)
         {
             using var client = _http.CreateClient();
 
-            if (string.IsNullOrWhiteSpace(model.Contrasenna))
-                model.Contrasenna = null;
- 
-
             var response = client.PostAsJsonAsync(_config.GetValue<string>("Valores:UrlAPI") + "Usuario/EditarUsuario", model).Result;
 
             if (response.IsSuccessStatusCode)
-                TempData["Mensaje"] = "Usuario actualizado correctamente";
+            {
+                TempData["Success"] = "Usuario actualizado correctamente";
+                return RedirectToAction("RegistroUsuario");
+            }
             else
-                TempData["Mensaje"] = "No se pudo actualizar el usuario";
+            {
+                ViewBag.Mensaje = response.Content.ReadAsStringAsync().Result;
+                model.Contrasenna = null;
 
-            return RedirectToAction("RegistroUsuario");
+                var responseRoles = client.PostAsync(
+                    _config.GetValue<string>("Valores:UrlAPI") + "Rol/ObtenerRoles", null).Result;
+
+                if (responseRoles.IsSuccessStatusCode)
+                    ViewBag.Roles = responseRoles.Content.ReadFromJsonAsync<List<Rol>>().Result;
+                else
+                    ViewBag.Roles = new List<Rol>();
+
+                var responseEstados = client.GetAsync(
+                    _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/1").Result;
+
+                if (responseEstados.IsSuccessStatusCode)
+                    ViewBag.Estado = responseEstados.Content.ReadFromJsonAsync<List<EstadoM>>().Result;
+                else
+                    ViewBag.Estado = new List<EstadoM>();
+
+                return View(model);
+            }
         }
     }
 }
-
 

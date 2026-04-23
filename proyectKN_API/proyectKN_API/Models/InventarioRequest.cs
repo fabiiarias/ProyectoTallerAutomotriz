@@ -1,4 +1,4 @@
-﻿/* using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace proyectKN_API.Models
 {
@@ -9,17 +9,20 @@ namespace proyectKN_API.Models
         [Required]
         public string Nombre { get; set; } = string.Empty;
         [Required]
-        public int IdArticulo { get; set; }
+        public string IdArticulo { get; set; } = string.Empty;
         [Required]
-        public string PrecioCompra { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
+        [Required]
+        public Decimal PrecioCompra { get; set; }
+        [Required]
+        public Decimal PrecioVenta {  get; set; }
         [Required]
         public int Stock { get; set; }
         [Required]
         public int StockMinimo { get; set; }
         [Required]
-        public int IdProveedor { get; set; }
+        public int Proveedor { get; set; }
 
 
     }
 }
-*/

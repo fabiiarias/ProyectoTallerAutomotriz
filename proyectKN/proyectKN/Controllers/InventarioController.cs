@@ -1,108 +1,144 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Mvc;
+using proyectKN.Filters;
 using proyectKN.Models;
 using System.Net;
 
 namespace proyectKN.Controllers
 {
+    [SesionActiva]
+   
     public class InventarioController : Controller
     {
         private readonly IHttpClientFactory _http;
-        private readonly IConfiguration _config; 
+        private readonly IConfiguration _config;
 
         public InventarioController(IHttpClientFactory http, IConfiguration config)
         {
             _http = http;
             _config = config;
         }
-
-
-        // GET: Inventario/Registro
-        public IActionResult Registro()
+        // GET REGISTRO USUARIO
+        [HttpGet]
+        public IActionResult RegistroInventario()
         {
-            //using (var db = new TallerLaUnionContext())
-            //{
-            //    var productos = db.Productos.ToList();
-            //    return View(productos);
-            //}
+
+            using var client = _http.CreateClient();
+
+            var urlProveedores = _config.GetValue<string>("Valores:UrlAPI") + "Proveedor/ObtenerProveedores";
+            var urlInventario = _config.GetValue<string>("Valores:UrlAPI") + "Inventario/ConsultarInventario";
+
+            // Proveedor
+            var responseProveedores = client.PostAsync(urlProveedores, null).Result;
+
+            if (responseProveedores.IsSuccessStatusCode)
+            {
+                ViewBag.Proveedor = responseProveedores.Content
+                                             .ReadFromJsonAsync<List<Proveedor>>()
+                                             .Result;
+            }
+            else
+            {
+                ViewBag.Proveedor = new List<Proveedor>();
+            }
+
+          
+
+            var responseInventario = client.PostAsync(urlInventario, null).Result;
+            if (responseInventario.IsSuccessStatusCode)
+            {
+                ViewBag.Inventario = responseInventario.Content
+                                                    .ReadFromJsonAsync<List<InventarioConsulta>>()
+                                                    .Result;
+            }
+            else
+            {
+                ViewBag.Inventario = new List<InventarioConsulta>();
+            }
             return View();
         }
 
-        // POST: Inventario/Registro
+        // POST REGISTRO USUARIO
         [HttpPost]
-        public IActionResult Registro(Producto producto)
+        public IActionResult RegistroInventario(Inventario model)
         {
-            if (!ModelState.IsValid)
+            using var client = _http.CreateClient();
+            var url = _config.GetValue<string>("Valores:UrlAPI") + "Inventario/RegistroInventario";
+            var result = client.PostAsJsonAsync(url, model).Result;
+
+            if (result.IsSuccessStatusCode)
             {
-                using (var db = new TallerLaUnionContext())
-                {
-                    var productos = db.Productos.ToList();
-                    return View(productos);
-                }
+                TempData["Success"] = "Producto registrado correctamente";
+            }
+            else
+            {
+                var error = result.Content.ReadAsStringAsync().Result;
+
+                TempData["Error"] = string.IsNullOrWhiteSpace(error)
+                    ? "No se pudo registrar el producto"
+                    : error;
             }
 
-            using (var db = new TallerLaUnionContext())
-            {
-                db.Productos.Add(producto);
-                db.SaveChanges();
-            }
-
-            return RedirectToAction("Registro");
+            return RedirectToAction("RegistroInventario", "Inventario");
         }
 
-        // ELIMINAR
-        public IActionResult Eliminar(string id)
+        [HttpGet]
+        public IActionResult EditarInventario(int id)
         {
-            using (var db = new TallerLaUnionContext())
+            using var client = _http.CreateClient();
+            List<Proveedor> listaProveedores = new List<Proveedor>();
+            // PROVEEDORES
+            var responseProveedor = client.PostAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + "Proveedor/ObtenerProveedores", null).Result;
+
+            if (responseProveedor.IsSuccessStatusCode)
             {
-                var producto = db.Productos.FirstOrDefault(p => p.IdProducto == id);
-                if (producto != null)
-                {
-                    db.Productos.Remove(producto);
-                    db.SaveChanges();
-                }
+                listaProveedores = responseProveedor.Content
+                    .ReadFromJsonAsync<List<Proveedor>>().Result;
+                ViewBag.Proveedor = listaProveedores;
             }
 
-            return RedirectToAction("Registro");
-        }
+            // INVENTARIO POR ID
+            var responseInventario = client.GetAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + $"Inventario/ObtenerInventarioId/{id}").Result;
 
-        // EDITAR (GET)
-        public IActionResult Editar(string id)
-        {
-            using (var db = new TallerLaUnionContext())
+            Inventario inventario = null;
+
+            if (responseInventario.IsSuccessStatusCode)
             {
-                var producto = db.Productos.FirstOrDefault(p => p.IdProducto == id);
-                if (producto == null)
-                    return RedirectToAction("Registro");
-
-                return View(producto);
+                inventario = responseInventario.Content
+                    .ReadFromJsonAsync<Inventario>().Result;
             }
-        }
+            else
+            {
+                TempData["Error"] = "No se pudo cargar el producto.";
+                return RedirectToAction("RegistroInventario");
+            }
 
-        // EDITAR (POST)
+            var proveedorActual = listaProveedores
+        .FirstOrDefault(p => p.Consecutivo == inventario.Proveedor);
+
+            ViewBag.ProveedorNombre = proveedorActual?.Nombre ?? "";
+
+            return View(inventario);
+        }
+        
+
         [HttpPost]
-        public IActionResult Editar(Producto producto)
+        public IActionResult EditarInventario(Inventario model)
         {
-            if (!ModelState.IsValid)
-                return View(producto);
+            using var client = _http.CreateClient();
 
-            using (var db = new TallerLaUnionContext())
-            {
-                var productoDb = db.Productos.FirstOrDefault(p => p.IdProducto == producto.IdProducto);
-                if (productoDb == null)
-                    return RedirectToAction("Registro");
+            var response = client.PutAsJsonAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + "Inventario/EditarInventario", model).Result;
 
-                productoDb.Nombre = producto.Nombre;
-                productoDb.Stock = producto.Stock;
-                productoDb.PrecioCompra = producto.PrecioCompra;
-                productoDb.PrecioVenta = producto.PrecioVenta;
-                productoDb.Descripcion = producto.Descripcion;
+            if (response.IsSuccessStatusCode)
+                TempData["Success"] = "Producto actualizado correctamente";
+            else
+                TempData["Error"] = "No se pudo actualizar el producto";
 
-                db.SaveChanges();
-            }
-
-            return RedirectToAction("Registro");
+            return RedirectToAction("RegistroInventario");
         }
-       
     }
 }
-*/
+

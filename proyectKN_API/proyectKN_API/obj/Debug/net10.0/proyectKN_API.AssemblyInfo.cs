@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("proyectKN_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc171c0785ebd275c7c94f9316cbcd92fe104df4")]
 [assembly: System.Reflection.AssemblyProductAttribute("proyectKN_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("proyectKN_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

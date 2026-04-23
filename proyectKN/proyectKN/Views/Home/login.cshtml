@@ -1,69 +1,75 @@
-﻿@{
+﻿@model proyectKN.Models.LoginRequest
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
     Layout = "_LayoutExterno";
 }
 
-@{
-    ViewData["Title"] = "login";
-}
+<link rel="stylesheet" href="~/css/login.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-<link href="~/css/cards.css" rel="stylesheet" />
-<div class="container-fluid position-sticky z-index-sticky top-0 p-0">
-    <div class="row">
-        <div class="col-12">
-            <!-- End Navbar -->
-        </div>
-    </div>
-</div>
-<main class="main-content  mt-0">
-    <section>
-        <div class="page-header min-vh-75">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-                        <div class="card card-plain mt-8">
-                            <div class="card-header pb-0 text-left bg-transparent">
-                                <h3 class="font-weight-bolder text-info text-gradient text-center">Bienvenido al Taller La Unión</h3>
-                                <h6 class="mb-0 text-black">Ingresa tus datos para iniciar sesión</h6>
-                            </div>
-                            <div class="card-body">
-                                <form role="form">
-                                    <label>Correo</label>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Correo" aria-label="Email" aria-describedby="email-addon">
-                                    </div>
-                                    <label>Contraseña</label>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Contraseña" aria-label="Password" aria-describedby="password-addon">
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                                        <label class="form-check-label" for="rememberMe">Recordarme</label>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="button" class="btn btn-card w-100 mt-4 mb-0">
-                                            Iniciar sesión
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                <p class="mb-4 text-sm mx-auto">
-                                   ¿Olvidó su contraseña?
-                                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Recuperala</a>
-                                </p>
-                            </div>
-                        </div>
+    <div class="login-container">
+
+        <div class="login-left">
+            <img src="~/img/taller-union.png" alt="Taller La Unión">
+            </div>
+
+        
+            <div class="login-right">
+
+                <h2>INICIAR SESIÓN</h2>
+                <p>Ingrese sus credenciales para acceder al sistema</p>
+
+                @if (ViewBag.Mensaje != null)
+                {
+                    <div class="alert alert-danger text-center">
+                        @ViewBag.Mensaje
                     </div>
-                    <div class="col-md-6">
-                        <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image: url('/img/auto.jpg');">></div>
+                }
+
+                <form asp-controller="Home" asp-action="Login" method="post">
+
+                    <label>Correo Electrónico</label>
+                    <input type="email"
+                           asp-for="Correo"
+                           placeholder="usuario@email.com"
+                           required>
+
+                        <label>Contraseña</label>
+                    <div class="input-password">
+                        <input type="password"
+                            id="password"
+                               asp-for="Contrasenna"
+                               placeholder="********"
+                               required>
+                        <i class="fa-solid fa-eye" id="togglePassword"></i>
+                        </div>
+                            <div class="forgot">
+                                <a asp-controller="Home"
+                                       asp-action="RecuperarAcceso">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </div>
+
+                            <button type="submit">Iniciar sesión</button>
+
+                        </form>
+
+                        
+                    </div>
+                   
+                </div>
+                
+            
+            <footer class="footer-alt py-4 mt-auto">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <p class="mb-0 ">
+                                © <script>document.write(new Date().getFullYear())</script> Taller La Unión
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-</main>
-<script src="~/js/bootstrap.min.js"></script>
-<script src="~/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+            </footer>
+            <script src="~/js/login.js"></script>

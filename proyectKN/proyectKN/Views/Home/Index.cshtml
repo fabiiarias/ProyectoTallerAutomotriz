@@ -1,101 +1,69 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
+
 <link href="~/css/cards.css" rel="stylesheet" />
-<!-- Segunda fila de cards -->
 
-    <meta charset="UTF-8">
-    <title>Order Status</title>
-  
-    <div class="table-container">
-        <div class="table-title">Citas del Día</div>
+<div class="table-container">
+    <div class="table-title">Citas del Mes</div>
+    <div class="table-scroll">
+    <table>
+        <thead>
+            <tr>
+               
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Servicio</th>
+                <th>Contacto</th>
+                <th>Estado de la Cita</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.CitasHoy != null && ViewBag.CitasHoy.Count > 0)
+            {
+                foreach (var item in ViewBag.CitasHoy)
+                {
+                    string claseEstado = "pending";
 
-        <table>
-            <thead>
+                    if (item.Estado == "Confirmada")
+                        claseEstado = "approved";
+                    else if (item.Estado == "Cancelada")
+                        claseEstado = "rejected";
+                    else if (item.Estado == "Pendiente")
+                        claseEstado = "pending";
+                    else if (item.Estado == "Finalizada")
+                        claseEstado = "approved";
+
+                    <tr>
+                        
+                        <td>@item.NombreCliente</td>
+                        <td>
+                            @item.FechaCita.ToString("dd/MM/yyyy")
+                            <br />
+                            @item.HoraCita.ToString(@"hh\:mm")
+                        </td>
+                        <td>@item.Servicio</td>
+                        <td>
+                            @item.Email
+                            <br />
+                            @item.Telefono
+                        </td>
+                        <td>
+                            <span class="badge @claseEstado">@item.Estado</span>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
                 <tr>
-                    <th>Número de cita</th>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Servicio</th>
-                    <th>Contacto</th>
-                    <th>Estado del Cita</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Carlos Tevez</td>
-                    <td>25/05/1999
-                        3:25 am
+                    <td colspan="6" class="text-center text-muted">
+                        No hay citas para hoy
                     </td>
-                    <td>alineamiento</td>
-                    <td>fuloano@gmail.com, 
-                        8888888
-                    </td>
-                    <td><span class="badge approved">Approved</span></td>
                 </tr>
-
-                <tr>
-                <td>2</td>
-                <td>Carlos Tevez</td>
-                <td>
-                    25/05/1999
-                    3:25 am
-                </td>
-                <td>alineamiento</td>
-                <td>
-                    fuloano@gmail.com,
-                    8888888
-                </td>
-                    <td><span class="badge pending">Pending</span></td>
-                </tr>
-
-                <tr>
-                <td>3</td>
-                <td>Carlos Tevez</td>
-                <td>
-                    25/05/1999
-                    3:25 am
-                </td>
-                <td>alineamiento</td>
-                <td>
-                    fuloano@gmail.com, 
-                    8888888
-                </td>
-                    <td><span class="badge rejected">Rejected</span></td>
-                </tr>
-
-                <tr>
-                <td>4</td>
-                <td>Carlos Tevez Pereira</td>
-                <td>
-                    25/05/1999
-                    3:25 am
-                </td>
-                <td>alineamiento</td>
-                <td>
-                    fuloano@gmail.com, 
-                    8888888
-                </td>
-                    <td><span class="badge approved">Approved</span></td>
-                </tr>
-
-                <tr>
-                <td>5</td>
-                <td>Carlos Tevez</td>
-                <td>
-                    25/05/1999
-                    3:25 am
-                </td>
-                <td>alineamiento</td>
-                <td>
-                    fuloano@gmail.com, 
-                    8888888
-                </td>
-                    <td><span class="badge approved">Approved</span></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
+            }
+        </tbody>
+    </table>
+</div>
+</div>

@@ -1,107 +1,181 @@
-﻿/*
+﻿
 using Microsoft.AspNetCore.Mvc;
-using proyectKN.Models.DB;
+using proyectKN.Filters;
+using proyectKN.Models;
+using proyectKN.Services;
 using System.Linq;
+using System.Net;
 
 namespace proyectKN.Controllers
 {
+    [SesionActiva]
+
     public class VehiculoController : Controller
     {
-        public string? Cedula { get; private set; }
+        private readonly IHttpClientFactory _http;
+        private readonly IConfiguration _config;
+        public VehiculoController(IHttpClientFactory http, IConfiguration config)
+        {
+            _http = http;
+            _config = config;
+        }
 
-        // GET: Vehiculo/RegistroVehicular
+        #region REGISTRO VEHICULO
+        [HttpGet]
         public IActionResult RegistroVehiculo()
         {
-            //    using (var db = new TallerLaUnionContext())
-            //    {
-            //        var vehiculos = db.Vehiculos.ToList();
-            //        return View(vehiculos);
-            //    }
-            return View();
+            using var client = _http.CreateClient();
+            var urlEstados = _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/3";
+            var urlVehiculos = _config.GetValue<string>("Valores:UrlAPI") + "Vehiculo/ConsultarVehiculos";
+
+
+            // Estados
+            var responseEstados = client.GetAsync(urlEstados).Result;
+
+            if (responseEstados.IsSuccessStatusCode)
+            {
+                ViewBag.Estado = responseEstados.Content
+                                                 .ReadFromJsonAsync<List<EstadoM>>()
+                                                 .Result;
             }
-        
-        // POST: Vehiculo/RegistroVehicular
-        [HttpPost]
-        public IActionResult RegistroVehiculo(Vehiculo vehiculo)
-        {
-            //    if (!ModelState.IsValid)
-            //    {
-            //        using (var db = new TallerLaUnionContext())
-            //        {
-            //            var vehiculos = db.Vehiculos.ToList();
-            //            return View(vehiculos);
-            //        }
-            //    }
+            else
+            {
+                ViewBag.Estado = new List<EstadoM>();
+            }
 
-            //    using (var db = new TallerLaUnionContext())
-            //    {
-            //        db.Vehiculos.Add(vehiculo);
-            //        db.SaveChanges();
-            //    }
-
-            //    return RedirectToAction("RegistroVehiculo");
+            // Vehiculos
+            var responseVehiculos = client.PostAsync(urlVehiculos, null).Result;
+            if (responseVehiculos.IsSuccessStatusCode)
+            {
+                ViewBag.Vehiculos = responseVehiculos.Content
+                                                    .ReadFromJsonAsync<List<VehiculoConsultas>>()
+                                                    .Result;
+            }
+            else
+            {
+                ViewBag.Vehiculos = new List<VehiculoConsultas>();
+            }
             return View();
         }
 
-        // ELIMINAR
-        public IActionResult Eliminar(int id)
+        [HttpPost]
+        public IActionResult RegistroVehiculo(Vehiculo model)
         {
-            using (var db = new TallerLaUnionContext())
+            using var client = _http.CreateClient();
+            model.Estado = 7;
+            var url = _config.GetValue<string>("Valores:UrlAPI") + "Vehiculo/RegistrarVehiculo";
+            var result = client.PostAsJsonAsync(url, model).Result;
+            if (result.IsSuccessStatusCode)
             {
-                var vehiculo = db.Vehiculos.FirstOrDefault(v => v.IdVehiculo == id);
-                if (vehiculo != null)
+                TempData["Success"] = "El vehículo fue registrado exitosamente";
+                return RedirectToAction("RegistroVehiculo");
+            }
+            else
+            {
+                ViewBag.Mensaje = result.Content.ReadAsStringAsync().Result;
+
+    
+                model.Telefono = 0;
+
+              
+                var urlVehiculos = _config.GetValue<string>("Valores:UrlAPI") + "Vehiculo/ConsultarVehiculos";
+                var responseVehiculos = client.PostAsync(urlVehiculos, null).Result;
+
+                if (responseVehiculos.IsSuccessStatusCode)
                 {
-                    db.Vehiculos.Remove(vehiculo);
-                    db.SaveChanges();
+                    ViewBag.Vehiculos = responseVehiculos.Content
+                        .ReadFromJsonAsync<List<VehiculoConsultas>>()
+                        .Result;
                 }
-            }
+                else
+                {
+                    ViewBag.Vehiculos = new List<VehiculoConsultas>();
+                }
 
-            return RedirectToAction("RegistroVehiculo");
+                return View(model);
+            }
         }
 
-        // EDITAR (GET)
-        public IActionResult Editar(int id)
+        #endregion
+
+        #region EDITAR VEHICULO
+        [HttpGet]
+        public IActionResult EditarVehiculo(int id)
         {
-            using (var db = new TallerLaUnionContext())
-            {
-                var vehiculo = db.Vehiculos.FirstOrDefault(v => v.IdVehiculo == id);
-                if (vehiculo == null)
-                    return RedirectToAction("RegistroVehiculo");
+            using var client = _http.CreateClient();
+            var responseEstados = client.GetAsync(
+                _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/3" 
+                ).Result;
 
-                return View(vehiculo); // aquí busca Editar.cshtml
+            if (responseEstados.IsSuccessStatusCode)
+            {
+                ViewBag.Estado = responseEstados.Content
+                                                .ReadFromJsonAsync<List<EstadoM>>()
+                                                .Result;
             }
+            else
+            {
+                ViewBag.Estado = new List<EstadoM>();
+            }
+            //Vehiculo 
+            var responseVehiculos = client.GetAsync(
+                _config.GetValue<string>("Valores:UrlAPI") +$"Vehiculo/ObtenerVehiculoId/{id}"
+                ).Result;
+
+            Vehiculo vehiculo = null;
+            if (responseVehiculos.IsSuccessStatusCode)
+            {
+                vehiculo = responseVehiculos.Content.
+                    ReadFromJsonAsync<Vehiculo>()
+                    .Result;
+            }
+            else
+            {
+                TempData["Error"] = "No se pudo obtener el vehículo.";
+                return RedirectToAction("RegistroVehiculo");
+            }
+            return View(vehiculo);
         }
 
 
-        // EDITAR (POST)
+        // EDITAR POST
         [HttpPost]
-        public IActionResult Editar(Vehiculo vehiculo)
+        public IActionResult EditarVehiculo(Vehiculo model)
         {
-            if (!ModelState.IsValid)
-                return View(vehiculo);
+            using var client = _http.CreateClient();
+            var response = client.PutAsJsonAsync(_config.GetValue<string>("Valores:UrlAPI")
+                + "Vehiculo/EditarVehiculo", model).Result;
 
-            using (var db = new TallerLaUnionContext())
+            if (response.IsSuccessStatusCode)
             {
-                var vehiculoDb = db.Vehiculos.FirstOrDefault(v => v.IdVehiculo == vehiculo.IdVehiculo);
-                if (vehiculoDb == null)
-                    return RedirectToAction("RegistroVehiculo");
-
-                vehiculoDb.Marca = vehiculo.Marca;
-                vehiculoDb.Modelo = vehiculo.Modelo;
-                vehiculoDb.Anio = vehiculo.Anio;
-                vehiculoDb.Placa = vehiculo.Placa;
-                vehiculoDb.Estado = vehiculo.Estado;
-                vehiculoDb.Problema = vehiculo.Problema;
-                vehiculoDb.NombreCliente = vehiculo.NombreCliente;
-                vehiculoDb.Telefono = vehiculo.Telefono;
-                vehiculoDb.Cedula = vehiculo.Cedula;
-
-                db.SaveChanges();
+                TempData["Success"] = "Vehículo editado exitosamente.";
+                return RedirectToAction("RegistroVehiculo");
             }
+            else
+            {
+                ViewBag.Mensaje = response.Content.ReadAsStringAsync().Result;
 
-            return RedirectToAction("RegistroVehiculo");
+                model.Telefono = 0;
+
+                var urlEstado = _config.GetValue<string>("Valores:UrlAPI") + "Estado/ObtenerEstado/3";
+                var responseEstado = client.GetAsync(urlEstado).Result;
+
+                if (responseEstado.IsSuccessStatusCode)
+                {
+                    ViewBag.Estado = responseEstado.Content
+                        .ReadFromJsonAsync<List<EstadoM>>()
+                        .Result;
+                }
+                else
+                {
+                    ViewBag.Estado = new List<EstadoM>();
+                }
+
+                return View(model);
+            }
         }
+        #endregion
+
     }
 }
 
-*/

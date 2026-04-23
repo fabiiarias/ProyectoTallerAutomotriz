@@ -1,6 +1,7 @@
-﻿
+﻿@model proyectKN.Models.Ingreso
 @{
     ViewData["Title"] = "RegistroIngreso";
+    Layout = "_Layout";
 }
 
 <head>
@@ -24,102 +25,88 @@
         <!-- FORMULARIO -->
         <div class="card">
             <form asp-action="RegistroIngreso"
-                  asp-controller="Contabilidad"
+                  asp-controller="Contavilidad"
                   method="post"
                   class="card-body">
 
                 <div class="row">
                     <div class="field">
-                        <label>Motivo del ingreso</label>
-                        <input type="text">
+                        <label>Descripción</label>
+                        <input type="text" asp-for="Descripcion" class="form-control" required>
+
+                        </div>
+                        <div class="field">
+                            <label>Monto</label>
+                            <input type="number" id="Monto" asp-for="Monto" class="form-control" required>
+
+                            </div>
+                        </div>
+
+                            <div class="row">
+                                <div class="field">
+                                    <label>Deuda(₡)</label>
+                                    <input type="number" id="Saldo_Pendiente" asp-for="Saldo_Pendiente" class="form-control" required oninput="validarIngreso()">
+                                    </div>
+                            </div>
+                            <button type="submit" class="btn">Crear</button>
+
+                        </form>
                     </div>
 
-                    <div class="field">
-                        <label>Pago</label>
-                        <select name="estado" required>
-                            <option value="Recibido">Completo</option>
-                            <option value="Pendiente">Parcial</option>
-                            <option value="Pendiente">Pendiente</option>
-                        </select>
+                    <!-- TABLA -->
+                    <div class="table-registros">
+                        <div class="table-title">Ingresos Registrados</div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Descipción del ingreso</th>
+                                    <th>Monto</th>
+                                    <th>Deuda</th>
+                                    <th>Fecha de registro</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.Ingreso != null)
+                                {
+                                    foreach (var item in ViewBag.Ingreso)
+                                    {
+                                        <tr>
+                                            <td>@item.Descripcion</td>
+                                            <td>@item.Monto</td>
+                                            <td>@item.Saldo_Pendiente</td>
+                                            <td>@item.Fecha</td>
+                                            <td>@item.Estado</td>
+
+                                            <td>
+
+
+                                                <a asp-controller="Contavilidad"
+                                                       asp-action="EditarIngreso"
+                                                       asp-route-id="@item.Consecutivo"
+                                                       class="btn btn-warning btn-sm">
+                                                    Editar
+                                                </a>
+
+                                    
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted text-white">
+                                            No hay productos registrados
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="field">
-                        <label>Monto</label>
-                        <input type="number">
-                    </div>
-
-                    <div class="field">
-                        <label>Deuda(₡)</label>
-                        <input type="number">
-                    </div>
-
-                </div>
-
-                <button type="submit" class="btn">Crear</button>
-
-            </form>
-        </div>
-
-        <!-- TABLA -->
-        <div class="table-registros">
-            <div class="table-title">Ingresos Registrados</div>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Motivo del ingreso</th>
-                        <th>Monto</th>
-                        <th>Pago</th>
-                        <th>Deuda</th>
-                        <th>Fecha de registro</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
-                    {
-                        foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Marca</td>
-                                <td>@item.Placa</td>
-                                <td>@item.Anio</td>
-                                <td>@item.Estado</td>
-                                <td>@item.Problema</td>
-                                <td>@item.NombreCliente</td>
-
-                                <td>
-
-
-                                    <a asp-controller="Contavilidad"
-                                       asp-action="Editar"
-                                       asp-route-id="@item.IdVehiculo"
-                                       class="btn btn-warning btn-sm">
-                                        Editar
-                                    </a>
-
-                                    <a asp-action="Eliminar"
-                                       asp-route-id="@item.IdVehiculo"
-                                       class="btn btn-danger btn-sm">
-                                        Eliminar
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="5" class="text-center text-muted text-white">
-                                No hay productos registrados
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!-- JS -->
-</body>
+             
+                <!-- JS -->
+            </body>

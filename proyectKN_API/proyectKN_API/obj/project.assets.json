@@ -1031,11 +1031,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Desktop\\PrograAvanzada_IC\\proyectKN_API\\proyectKN_API\\proyectKN_API\\proyectKN_API.csproj",
+      "projectUniqueName": "C:\\ProyectoFinal\\proyectKN_API\\proyectKN_API\\proyectKN_API.csproj",
       "projectName": "proyectKN_API",
-      "projectPath": "C:\\Users\\User\\OneDrive\\Desktop\\PrograAvanzada_IC\\proyectKN_API\\proyectKN_API\\proyectKN_API\\proyectKN_API.csproj",
+      "projectPath": "C:\\ProyectoFinal\\proyectKN_API\\proyectKN_API\\proyectKN_API.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive\\Desktop\\PrograAvanzada_IC\\proyectKN_API\\proyectKN_API\\proyectKN_API\\obj\\",
+      "outputPath": "C:\\ProyectoFinal\\proyectKN_API\\proyectKN_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1069,7 +1069,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -1107,7 +1107,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

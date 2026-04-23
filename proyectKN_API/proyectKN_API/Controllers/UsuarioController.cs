@@ -23,12 +23,22 @@ public class UsuarioController : ControllerBase
         using var context = new SqlConnection(
             _config.GetValue<string>("ConnectionStrings:DefaultConnection"));
 
+        if (string.IsNullOrWhiteSpace(model.Contrasenna))
+            return BadRequest("La contraseña es obligatorio.");
+
+        var contrasennaTexto = model.Contrasenna.ToString();
+
+        if (contrasennaTexto.Length < 6)
+            return BadRequest("La contraseña debe tener 6 dígitos.");
+
+        var passwordHelper = new proyectKN_API.Services.PasswordHelper(_config);
+
         var parametros = new DynamicParameters();
         parametros.Add("@NombreCompleto", model.NombreCompleto);
         parametros.Add("@Cedula", model.Cedula);
         parametros.Add("@Correo", model.Correo);
         parametros.Add("@UsuarioLogin", model.UsuarioLogin);
-        parametros.Add("@Contrasenna", model.Contrasenna);
+        parametros.Add("@Contrasenna", passwordHelper.Encrypt(model.Contrasenna));
         parametros.Add("@Estado", model.Estado);
         parametros.Add("@NombreRol", model.NombreRol);
 
@@ -64,7 +74,7 @@ public class UsuarioController : ControllerBase
 
         return Ok(lista);
     }
-    //CONSULTAR AL PROFE SI PUEDO USAR GET 
+
     //GET ACTUALIZAR USUARIO
     [HttpPost("EditarUsuario")]
     public IActionResult EditarUsuario([FromBody] UsuarioRequest model)
@@ -74,6 +84,16 @@ public class UsuarioController : ControllerBase
 
         using var context = new SqlConnection(
             _config.GetConnectionString("DefaultConnection"));
+        if (!string.IsNullOrWhiteSpace(model.Contrasenna))
+        {
+
+
+            var contrasennaTexto = model.Contrasenna.ToString();
+
+            if (contrasennaTexto.Length < 6)
+                return BadRequest("La contraseña debe tener 6 dígitos.");
+        }
+        var passwordHelper = new proyectKN_API.Services.PasswordHelper(_config);
 
         var parametros = new DynamicParameters();
         parametros.Add("@Consecutivo", model.Consecutivo);
@@ -85,7 +105,9 @@ public class UsuarioController : ControllerBase
         parametros.Add("@NombreRol", model.NombreRol);
 
         parametros.Add("@Contrasenna",
-       string.IsNullOrWhiteSpace(model.Contrasenna) ? null : model.Contrasenna);
+            string.IsNullOrWhiteSpace(model.Contrasenna)
+                ? null
+                : passwordHelper.Encrypt(model.Contrasenna));
 
         var result = context.Execute(
             "sp_EditarUsuario",
@@ -119,4 +141,24 @@ public class UsuarioController : ControllerBase
 
         return Ok(usuario);
     }
+
+
+    //obtner usuario para cita
+    [HttpGet("ObtenerUsuario")]
+    public IActionResult ObtenerUsuario()
+    {
+        using var context = new SqlConnection(
+            _config.GetValue<string>("ConnectionStrings:DefaultConnection"));
+
+        var result = context.Query<UsuarioResponse>(
+            "sp_ObtenerUsuarios",
+            commandType: System.Data.CommandType.StoredProcedure
+        ).ToList();
+
+        if (result == null || !result.Any())
+            return NotFound("No hay usuarios registrados");
+
+        return Ok(result);
+    }
 }
+
